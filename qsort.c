@@ -75,6 +75,21 @@ static void _single_pivot_qsort(int a[], int lo, int hi)
     int gt = hi;
     int i = lo + 1;
 
+	while (i <= gt) {
+        if (a[i] < pivot) {
+            swap(&a[i], &a[lt]);
+            lt++;
+            i++;
+        } else if (a[i] > pivot) {
+            swap(&a[i], &a[gt]);
+            gt--;
+        } else {
+            i++;
+        }
+    }
+
+    _single_pivot_qsort(a, lo, lt - 1);
+    _single_pivot_qsort(a, gt + 1, hi);
 }
 
 /*

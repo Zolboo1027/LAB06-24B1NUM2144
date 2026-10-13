@@ -15,7 +15,19 @@ static int init_seed = 0;  // Random seed 1 удаа эхлүүлнэ
 */
 static void insertion_sort(int a[], int lo, int hi)
 {
-        /* Оруулан эрэмбэлэх аргыг хэрэгжүүл */
+        int i, j, x;
+
+    for (i = lo + 1; i <= hi; i++) {
+        x = a[i];
+        j = i - 1;
+
+        while (j >= lo && a[j] > x) {
+            a[j + 1] = a[j];
+            j--;
+        }
+
+        a[j + 1] = x;
+    }
 }
 
 /*
@@ -49,7 +61,20 @@ static void random_shuffle(int a[], int lo, int hi)
 */
 static void _single_pivot_qsort(int a[], int lo, int hi)
 {
-        /* Энд quicksort хэрэгжүүл */
+        if (lo >= hi) {
+        return;
+    }
+
+    if (hi - lo <= CUTOFF) {
+        insertion_sort(a, lo, hi);
+        return;
+    }
+
+    int pivot = a[lo];
+    int lt = lo;
+    int gt = hi;
+    int i = lo + 1;
+
 }
 
 /*

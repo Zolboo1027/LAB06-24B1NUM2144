@@ -145,7 +145,6 @@ if(hi - lo <= CUTOFF){
 	_dual_pivot_qsort(a, gt + 1, hi);
 }
 	
-}
 /*
   wrapper function for _dual_pivot_qsort
   _dual_pivot_qsort-ыг дуудахад ашиглах функц
